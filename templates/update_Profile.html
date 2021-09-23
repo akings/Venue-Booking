@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update profile</title>
+    <script src="../static/bootstrap/js/jquery-3.4.0.js"></script>
+    <script src="../static/bootstrap/js/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <nav class="menu navbar navbar-expand-md bg-info navbar-light">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Flawless Grounds</a>
+  <!-- Navbar links -->
+  <div class="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/client">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/book">Book</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/booking_status">Booking Status</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/gallery">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+    <div class="row">
+        <h5 class="alert">Update your Profile</h5>
+        <div class="container">
+            {% with messages = get_flashed_messages()%}
+
+            {% for message in messages %}
+               <p class="text-info">{{ message }}</p>
+            {% endfor %}
+            {% endwith %}
+            <form action="" method="post">
+                <div class="form-group">
+                    <input value="{{ user.name }}" name="x" type="text" class="form-control" placeholder="Name">
+                </div>
+                 <div class="form-group">
+                    <input value="{{ user.email }}" name="y" type="email" class="form-control" placeholder="Email">
+                 </div>
+                 <div class="form-group">
+                    <input value="{{ user.password }}" name="z" type="password" class="form-control" placeholder="password">
+                 </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-outline-info btn-block" value="Update">
+                </div>
+                <a href="/client" class="btn btn-outline-success btn-block">Back</a>
+            </form>
+        </div>
+    </div>
+</body>
+</body>
+</html>

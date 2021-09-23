@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <script src="../static/bootstrap/js/jquery-3.4.0.js"></script>
+    <script src="../static/bootstrap/js/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <nav class="menu navbar navbar-expand-md bg-info navbar-light">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Flawless Grounds</a>
+  <!-- Navbar links -->
+  <div class="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="admin">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/add_users">Add Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/view_users">View Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bookings">Bookings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h4>welcome {{ session.name }}</h4>
+
+    <table class = "table table-hover table-hover">
+        {% for user in users %}
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td><a href = "/delete_users/{{ user.id }}" class="btn btn-danger">Delete</a></td>
+            <td><a href="/update_user/{{ user.id }}" class="btn btn-info">Update</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <table class = "table table-hover table-hover">
+        {% for bookings in bookings %}
+        <tr>
+            <th>NAME</th>
+            <th>NATIONALITY</th>
+            <th>PHONE NO.</th>
+            <th>EMAIL</th>
+            <th>SERVICE REQ</th>
+            <th>VENUE</th>
+            <th>DATE</th>
+            <th>TIME</th>
+            <th>CAPACITY</th>
+            <th>DESCRIPTION</th>
+
+        </tr>
+        <tr>
+            <td>{{ bookings.name }}</td>
+            <td>{{ bookings.nationality }}</td>
+            <td>{{ bookings.phone_no }}</td>
+            <td>{{ bookings.email }}</td>
+            <td>{{ bookings.service_needed }}</td>
+            <td>{{ bookings.venue }}</td>
+            <td>{{ bookings.date }}</td>
+            <td>{{ bookings.time }}</td>
+            <td>{{ bookings.capacity }}</td>
+            <td>{{ bookings.description }}</td>
+            <td>
+                <input type="radio" name="feedback" id="{{ bookings.id }}" value="Approved" >Approve
+                <input type="radio" name="feedback" id="{{ bookings.id }}" value="Declined" >Decline
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

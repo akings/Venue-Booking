@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="../static/bootstrap/js/jquery-3.4.0.js"></script>
+    <script src="../static/bootstrap/js/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <nav class="menu navbar navbar-expand-md bg-info navbar-light">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Flawless Grounds</a>
+      <!-- Navbar links -->
+      <div class="menu">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog_details">Blog details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div>
+        <h4 class="tit1">
+            WELCOME TO FLAWLESS GROUNDS BOOKING SERVICES <br><br>
+        …the perfect facility for your CONFERENCE, SEMINAR, WEDDING, BRIDAL or BABY SHOWER, <br><br>
+            ANNIVERSARY, PARTY or EVENT!
+        </h4>
+        <p>
+            Whatever the size or scope of your event, our team will handle and manage all your requirements to make sure it’s a remarkable success!
+            We are also equipped to handle your <br>
+            accommodation needs with our newly renovated Garden Venue Boutique Hotel.
+        </p>
+    </div>
+    <section>
+        <!--Register form-->
+        <div class="row">
+            <h5 class="alert"> Please Register Here!!</h5>
+            <div class="container">
+                {% with messages = get_flashed_messages()%}
+
+                {% for message in messages %}
+                   <p class="text-info">{{ message }}</p>
+                {% endfor %}
+                {% endwith %}
+                <form action="" method="post">
+                    <div class="form-group">
+                        <input name="x" type="text" class="form-control" placeholder="Name">
+                    </div>
+                     <div class="form-group">
+                        <input name="y" type="email" class="form-control" placeholder="Email">
+                     </div>
+                     <div class="form-group">
+                        <input name="z" type="password" class="form-control" placeholder="password">
+                     </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-info btn-block" value="Register">
+                    </div>
+                    <a href="/" class="btn btn-outline-success btn-block">Login Instead</a>
+                </form>
+            </div>
+        </div>
+
+        </div>
+	    </section>
+
+</body>
+</html>

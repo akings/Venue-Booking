@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clients</title>
+    <script src="../static/bootstrap/js/jquery-3.4.0.js"></script>
+    <script src="../static/bootstrap/js/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <nav class="menu navbar navbar-expand-md bg-info navbar-light">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Flawless Grounds</a>
+  <!-- Navbar links -->
+  <div class="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/client">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/book">Book</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/booking_status">Booking Status</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/gallery">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+ <h1 >welcome {{ session.name }}</h1>
+    <table class = "table table-hover table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Update</th>
+        </tr>
+        <tr>
+            <td>{{ session.get("name")  }}</td>
+            <td>{{ session.get("email")  }}</td>
+            <td><a href="/update_profile/{{ session.get("id")}}" class="btn btn-info">Update</a></td>
+        </tr>
+
+    </table>
+    <table class = "table table-hover table-dark">
+        {% for bookings in bookings %}
+        <tr>
+            <th>Name</th>
+            <th>Current residence</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>Service needed</th>
+            <th>Venue</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Capacity</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{{ session.get("name") }}</td>
+            <td>{{ session.get("nationality") }}</td>
+            <td>{{ session.get("phone_no") }}</td>
+            <td>{{ session.get("email") }}</td>
+            <td>{{ session.get("service_needed") }}</td>
+            <td>{{ session.get("venue") }}</td>
+            <td>{{ session.get("date") }}</td>
+            <td>{{ session.get("time") }}</td>
+            <td>{{ session.get("capacity") }}</td>
+            <td>{{ session.get("description") }}</td>
+            <td><a href = "/#/{{ session.get("id") }}" class="btn btn-danger">Decline</a></td>
+            <td><a href="/#/{{ session.get("id") }}" class="btn btn-info">Approve</a></td>
+        </tr>
+        <tr>
+            <td>{{ bookings.name }}</td>
+            <td>{{ bookings.nationality }}</td>
+            <td>{{ bookings.phone_no }}</td>
+            <td>{{ bookings.email }}</td>
+            <td>{{ bookings.service_needed }}</td>
+            <td>{{ bookings.venue }}</td>
+            <td>{{ bookings.date }}</td>
+            <td>{{ bookings.time }}</td>
+            <td>{{ bookings.capacity }}</td>
+            <td>{{ bookings.description }}</td>
+            <td><a href = "/#/{{ bookings.id }}" class="btn btn-danger">Decline</a></td>
+            <td><a href="/#/{{ bookings.id }}" class="btn btn-info">Approve</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
